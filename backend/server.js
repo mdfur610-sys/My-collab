@@ -1,24 +1,22 @@
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config();
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Routes
-const userRoutes = require("./routes/userRoutes");
-app.use("/api", userRoutes);
-
-// Test route
+// TEST ROUTE
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
 
-// Server
-const PORT = 5000;
+app.get("/api/users", (req, res) => {
+  res.json([{ name: "Test User" }]);
+});
+
+const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Pages
 import LandingPage from "./pages/LandingPage";
 import CreatorDashboard from "./pages/CreatorDashboard";
 import Courses from "./pages/Courses";
@@ -8,6 +10,15 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 
 function App() {
+
+  // 🔗 Backend connection test
+  useEffect(() => {
+    fetch("http://localhost:5000/api/users")
+      .then((res) => res.json())
+      .then((data) => console.log("Backend Data:", data))
+      .catch((err) => console.error("Error:", err));
+  }, []);
+
   return (
     <Router>
       <Routes>

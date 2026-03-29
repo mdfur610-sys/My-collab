@@ -6,11 +6,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// TEST ROUTE
+/* ✅ IMPORTANT ROOT ROUTE */
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
 
+/* ✅ TEST API ROUTE */
 app.get("/api/users", (req, res) => {
   res.json([{ name: "Test User" }]);
 });

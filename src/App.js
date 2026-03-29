@@ -13,7 +13,7 @@ function App() {
 
   // 🔗 Backend connection test
   useEffect(() => {
-    fetch("http://localhost:5000/api/users")
+    fetch("https://your-railway-url/api/users")
       .then((res) => res.json())
       .then((data) => console.log("Backend Data:", data))
       .catch((err) => console.error("Error:", err));
